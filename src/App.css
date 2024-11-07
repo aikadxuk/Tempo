@@ -1,0 +1,70 @@
+body {
+  font-family: "Open-sans", sans-serif;
+  overflow-y: var(--hidden);
+}
+
+.nunitoFont {
+  font-family: "Nunito", sans-serif;
+}
+
+.clamp {
+  font-size: clamp(var(--min), var(--default), var(--max));
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  grid-template-areas:
+    "name email"
+    "subject subject"
+    "message message"
+    "button button";
+
+  @media (width <= 540px) {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+    grid-template-areas:
+      "name"
+      "email"
+      "subject"
+      "message"
+      "button";
+  }
+}
+
+.name {
+  grid-area: name;
+}
+
+.email {
+  grid-area: email;
+}
+
+.subject {
+  grid-area: subject;
+}
+
+.message {
+  grid-area: message;
+}
+
+.button {
+  grid-area: button;
+}
+
+.gridLayout {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(var(--minpx), var(--maxpx)));
+
+  @media (width <= 1032px) {
+    gap: 30px;
+    grid-template-columns: repeat(3, minmax(var(--minpx), var(--maxpx)));
+  }
+  @media (width <= 780px) {
+    grid-template-columns: repeat(2, minmax(var(--minpx), var(--maxpx)));
+  }
+  @media (width <= 540px) {
+    grid-template-columns: repeat(1, minmax(var(--minpx), var(--maxpx)));
+  }
+}
